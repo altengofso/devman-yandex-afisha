@@ -1,3 +1,18 @@
 from django.contrib import admin
+from .models import Place
 
-# Register your models here.
+
+@admin.register(Place)
+class PlaceAdmin(admin.ModelAdmin):
+    list_display = [
+        'title',
+        'description_short',
+        'latitude',
+        'longitude',
+    ]
+    fields = [
+        'title',
+        'description_short',
+        'description_long',
+        ('latitude', 'longitude'),
+    ]
