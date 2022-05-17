@@ -1,18 +1,6 @@
 from django.contrib import admin
-from .models import Place
+from .models import Place, Image
 
 
-@admin.register(Place)
-class PlaceAdmin(admin.ModelAdmin):
-    list_display = [
-        'title',
-        'description_short',
-        'latitude',
-        'longitude',
-    ]
-    fields = [
-        'title',
-        'description_short',
-        'description_long',
-        ('latitude', 'longitude'),
-    ]
+admin.site.register(Place)
+admin.site.register(Image)
