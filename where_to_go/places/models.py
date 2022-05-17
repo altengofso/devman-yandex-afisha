@@ -17,8 +17,6 @@ class Image(models.Model):
     order = models.IntegerField()
     place = models.ForeignKey(Place, on_delete=models.CASCADE)
 
-
-
     def __str__(self):
         return f'{self.order} {self.place.title}'
 
