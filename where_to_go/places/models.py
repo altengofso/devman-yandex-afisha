@@ -14,11 +14,11 @@ class Place(models.Model):
 
 class Image(models.Model):
     image = models.ImageField()
-    order = models.IntegerField()
+    order = models.PositiveIntegerField(default=0, db_index=True)
     place = models.ForeignKey(Place, on_delete=models.CASCADE)
 
     def __str__(self):
         return f'{self.order} {self.place.title}'
 
     class Meta:
-        ordering = ['place', 'order']
+        ordering = ['order']
