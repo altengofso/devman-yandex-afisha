@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
 from pathlib import Path
+from uuid import uuid4
+
 from environs import Env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -24,7 +26,10 @@ env = Env()
 env.read_env()
 
 DEBUG = env.bool("DEBUG", default=False)
-SECRET_KEY = env.str("SECRET_KEY")
+try:
+    SECRET_KEY = env.str("SECRET_KEY")
+except:
+    SECRET_KEY = str(uuid4())
 
 
 ALLOWED_HOSTS = ['127.0.0.1', '*.pythonanywhere.com']
