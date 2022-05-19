@@ -32,7 +32,7 @@ except:
     SECRET_KEY = str(uuid4())
 
 
-ALLOWED_HOSTS = ['127.0.0.1', '*.pythonanywhere.com']
+ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
 
 
 # Application definition
