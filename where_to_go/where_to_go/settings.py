@@ -28,7 +28,7 @@ env.read_env()
 
 DEBUG = env.bool("DEBUG", default=False)
 
-SECRET_KEY = env.str("SECRET_KEY", default=str(uuid4()))
+SECRET_KEY = env.str("SECRET_KEY")
 
 ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
 
