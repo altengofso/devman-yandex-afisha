@@ -13,6 +13,7 @@ import os
 from pathlib import Path
 from uuid import uuid4
 
+import environs
 from environs import Env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -26,14 +27,10 @@ env = Env()
 env.read_env()
 
 DEBUG = env.bool("DEBUG", default=False)
-try:
-    SECRET_KEY = env.str("SECRET_KEY")
-except:
-    SECRET_KEY = str(uuid4())
 
+SECRET_KEY = env.str("SECRET_KEY", default=str(uuid4()))
 
 ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
-
 
 # Application definition
 
